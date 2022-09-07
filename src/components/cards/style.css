@@ -1,0 +1,16 @@
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 25px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.brandPic {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+
