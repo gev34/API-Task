@@ -1,6 +1,6 @@
 import axios from "axios";
 import { baseUrl } from "../api";
-import React, { useReducer, useContext } from "react";
+import React, {useReducer} from "react";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -17,11 +17,7 @@ function reducer(state, action) {
         userData: action.payload,
       };
     case "DELETE_USER":
-      console.log([
-        ...state.userData.filter((user) => user.id !== action.id),
-      ]);
-      // userDatastate.userData.data.filter((user) => user.id !== action.id)
-      console.log(state.userData.filter((user) => user.id !== action.id));
+
       return {
         ...state,
         loading: false,
@@ -33,9 +29,7 @@ function reducer(state, action) {
       return { ...state };
   }
 
-  // if (action.type === "delete") {
-  //   return [...state.filter((obj) => obj.id !== action.payload.id)];
-  // }
+
 }
 const UserDataContext = React.createContext();
 
@@ -50,7 +44,6 @@ export const getData = (dispatch) => {
 };
 
 export const deleteData = (id, dispatch) => {
-  console.log(dispatch);
   dispatch({
     type: "DELETE_USER",
     id: id,

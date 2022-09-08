@@ -3,15 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import BrandPage from "./pages/BrandPage";
-import { UserDataProvider } from "./context/getData";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <UserDataProvider>
-      <BrandPage />
-    </UserDataProvider>
+    <App />
   </React.StrictMode>
 );
 
