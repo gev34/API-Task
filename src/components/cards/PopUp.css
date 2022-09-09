@@ -21,6 +21,13 @@ body{
 }
 .popup input{
     margin-bottom: 20px;
+    border-radius: 20px;
+    height: 20px;
+    outline: none;
+    background-color:  rgb(241, 210, 163);
+}
+.popup input:focus{
+    background-color:rgb(255, 239, 215);
 }
 .okButton{
     width:30%;

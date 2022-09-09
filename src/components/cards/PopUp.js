@@ -7,13 +7,14 @@ import './PopUp.css'
 function PopUp({value , setpopup}) {
   const context = useContext(UserDataContext);
 //  console.log(value.id);
-   const [newData, setNewData] = useState();
+   const [newName, setNewName] = useState();
+   const [newSurName , setNewSurName] = useState();
   return (
     <div className="popup">
       <form
         onSubmit={(e) => {
           e.preventDefault();
-           editData(newData, context.dispatch , value.id);
+           editData(newName, newSurName ,  context.dispatch , value.id);
            console.log(context.state.userData);
            setpopup(false)
         }}
@@ -22,12 +23,19 @@ function PopUp({value , setpopup}) {
           type="text"
           placeholder="New Name"
           onChange={(e) => {
-            setNewData(e.target.value);
+            setNewName(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          placeholder="New SurName"
+          onChange={(e) => {
+            setNewSurName(e.target.value);
           }}
         />
         <button className="okButton">OK</button>
       </form>
-      <button className="xForClose" onClick={() => setpopup(false)}> X </button>
+      <button className="xForClose" onClick={() =>setpopup(false)}> X </button>
     </div>
   );
 }

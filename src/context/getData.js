@@ -32,7 +32,8 @@ function reducer(state, action) {
           userData:[
             ...state.userData.filter((user) => {
               if(user.id === action.id) {
-                user.first_name = action.name
+                user.first_name = action.name ? action.name : user.first_name;
+                user.last_name = action.surname ? action.surname : user.last_name;
               }
               return state
             })
@@ -63,10 +64,11 @@ export const deleteData = (id, dispatch) => {
     id: id,
   });
 };
-export const editData = (name , dispatch , id) =>{
+export const editData = (name , surname ,  dispatch , id) =>{
   dispatch({
     type:"EDIT_USER",
     name:name,
+    surname:surname,
     id:id
   })
  // console.log(id)
