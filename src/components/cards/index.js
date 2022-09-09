@@ -35,7 +35,7 @@ const CreateCard = () => {
                   setClickValue(value);
                 //  console.log(clickValue);
               }}>EDIT</button>
-              {popUp && clickValue && (<PopUp value = {clickValue} />)}         
+                {popUp && clickValue && (<PopUp value = {clickValue} setpopup = {SetPopUp}/>)}         
             </div>
           </div>
         ))}

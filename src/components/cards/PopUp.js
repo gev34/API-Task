@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useContext } from "react";
 import { UserDataContext } from "../../context/getData";
 import { editData } from "../../context/getData";
+import './PopUp.css'
 
-function PopUp({value}) {
+function PopUp({value , setpopup}) {
   const context = useContext(UserDataContext);
 //  console.log(value.id);
    const [newData, setNewData] = useState();
@@ -13,7 +14,8 @@ function PopUp({value}) {
         onSubmit={(e) => {
           e.preventDefault();
            editData(newData, context.dispatch , value.id);
-           console.log(context.state.userData)
+           console.log(context.state.userData);
+           setpopup(false)
         }}
       >
         <input
@@ -23,8 +25,9 @@ function PopUp({value}) {
             setNewData(e.target.value);
           }}
         />
-        <button>OK</button>
+        <button className="okButton">OK</button>
       </form>
+      <button className="xForClose" onClick={() => setpopup(false)}> X </button>
     </div>
   );
 }
