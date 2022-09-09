@@ -25,6 +25,20 @@ function reducer(state, action) {
           ...state.userData.filter((user) => user.id !== action.id),
         ],
       };
+      case "EDIT_USER":
+        return {
+          ...state,
+          loading:false,
+          userData:[
+            ...state.userData.filter((user) => {
+              if(user.id === action.id) {
+                user.first_name = action.name
+              }
+              return state
+            })
+          ]
+        }
+
     default:
       return { ...state };
   }
@@ -49,7 +63,14 @@ export const deleteData = (id, dispatch) => {
     id: id,
   });
 };
-
+export const editData = (name , dispatch , id) =>{
+  dispatch({
+    type:"EDIT_USER",
+    name:name,
+    id:id
+  })
+ // console.log(id)
+}
 const UserDataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {
     loading: false,
